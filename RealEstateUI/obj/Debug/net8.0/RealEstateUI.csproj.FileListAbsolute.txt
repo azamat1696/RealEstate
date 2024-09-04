@@ -28,3 +28,4 @@
 /Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/obj/Debug/net8.0/RealEstateUI.pdb
 /Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/obj/Debug/net8.0/RealEstateUI.genruntimeconfig.cache
 /Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/obj/Debug/net8.0/ref/RealEstateUI.dll
+/Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/obj/Debug/net8.0/RealEstateUI.sourcelink.json

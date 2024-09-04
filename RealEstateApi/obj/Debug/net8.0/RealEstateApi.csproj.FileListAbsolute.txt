@@ -70,3 +70,4 @@
 /Applications/MAMP/htdocs/RealEstateApi/RealEstateApi/bin/Debug/net8.0/MySqlConnector.dll
 /Applications/MAMP/htdocs/RealEstateApi/RealEstateApi/bin/Debug/net8.0/Savage.OptimizedDataReader.dll
 /Applications/MAMP/htdocs/RealEstateApi/RealEstateApi/bin/Debug/net8.0/Savage.Data.dll
+/Applications/MAMP/htdocs/RealEstateApi/RealEstateApi/obj/Debug/net8.0/RealEstateApi.sourcelink.json
