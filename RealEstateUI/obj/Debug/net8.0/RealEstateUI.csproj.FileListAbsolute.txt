@@ -29,3 +29,6 @@
 /Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/obj/Debug/net8.0/RealEstateUI.pdb
 /Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/obj/Debug/net8.0/RealEstateUI.genruntimeconfig.cache
 /Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/obj/Debug/net8.0/ref/RealEstateUI.dll
+/Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/bin/Debug/net8.0/Newtonsoft.Json.dll
+/Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/obj/Debug/net8.0/RealEstateUI.csproj.AssemblyReference.cache
+/Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/obj/Debug/net8.0/RealEsta.95503FB4.Up2Date
