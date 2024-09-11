@@ -5,6 +5,38 @@
       "PackagePath": "staticwebassets/RealEstateUI.bundle.scp.css"
     },
     {
+      "Id": "/Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/wwwroot/cityimages/budapest.jpg",
+      "PackagePath": "staticwebassets/cityimages/budapest.jpg"
+    },
+    {
+      "Id": "/Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/wwwroot/cityimages/dresden.jpg",
+      "PackagePath": "staticwebassets/cityimages/dresden.jpg"
+    },
+    {
+      "Id": "/Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/wwwroot/cityimages/lviv.jpg",
+      "PackagePath": "staticwebassets/cityimages/lviv.jpg"
+    },
+    {
+      "Id": "/Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/wwwroot/cityimages/lyon.jpg",
+      "PackagePath": "staticwebassets/cityimages/lyon.jpg"
+    },
+    {
+      "Id": "/Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/wwwroot/cityimages/miami.jpg",
+      "PackagePath": "staticwebassets/cityimages/miami.jpg"
+    },
+    {
+      "Id": "/Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/wwwroot/cityimages/montenegro.jpg",
+      "PackagePath": "staticwebassets/cityimages/montenegro.jpg"
+    },
+    {
+      "Id": "/Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/wwwroot/cityimages/rome.jpg",
+      "PackagePath": "staticwebassets/cityimages/rome.jpg"
+    },
+    {
+      "Id": "/Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/wwwroot/cityimages/sofia.jpg",
+      "PackagePath": "staticwebassets/cityimages/sofia.jpg"
+    },
+    {
       "Id": "/Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/wwwroot/css/site.css",
       "PackagePath": "staticwebassets/css/site.css"
     },
