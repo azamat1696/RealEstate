@@ -58,8 +58,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0NvbXBvbmVudHMvX0RlZmF1bHRIb21lUGFnZVByb2R1Y3RMaXN0UGFydGlhbC9EZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[/Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/Views/Shared/Components/_DefaultOurClientsComponentPartial/Default.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0NvbXBvbmVudHMvX0RlZmF1bHRPdXJDbGllbnRzQ29tcG9uZW50UGFydGlhbC9EZWZhdWx0LmNzaHRtbA==
+[/Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/Views/Shared/Components/_DefaultOurTestimonialsComponentPartial/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0NvbXBvbmVudHMvX0RlZmF1bHRPdXJUZXN0aW1vbmlhbHNDb21wb25lbnRQYXJ0aWFsL0RlZmF1bHQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/Views/Shared/Components/_DefaultProductListExploreCitiesComponentPartial/Default.cshtml]
