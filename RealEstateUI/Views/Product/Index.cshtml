@@ -1,0 +1,66 @@
+@model List<ResultProductWithCategoryDto>
+@{
+    ViewBag.Title = "title";
+    Layout = "/Views/Admin/Index.cshtml";
+}
+
+<!-- Table Start -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-12">
+            <div class="bg-light rounded h-100 p-4">
+                <div class="row">
+                    <div class="col-6 text-start">
+                        <h6 class="mb-4">Ürünler Tablosu</h6>
+                    </div>
+                    <div class="col-6 text-end">
+                        <a href="/Product/CreateProduct" class="btn btn-outline-primary mb-4">Yeni Ürün Ekle</a>
+                   </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">İlan Başlığı</th>
+                            <th scope="col">Açıklama</th>
+                            <th scope="col">Şehir</th>
+                            <th scope="col">İlçe</th>
+                            <th scope="col">Adres</th>
+                            <th scope="col">Kategory</th>
+                            <th scope="col">Fiyat</th>
+                            <th scope="col">Tür</th>
+                            <th scope="col">İşlemler</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @{
+                            int counter = 1;
+                        }
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <th scope="row">@counter</th>
+                                <td>@item.title</td>
+                                <td>@item.description</td>
+                                <td>@item.city</td>
+                                <td>@item.district</td>
+                                <td>@item.address</td>
+                                <td>@item.categoryName</td>
+                                <td>@item.price ₺</td>
+                                <td>@item.type</td>
+                                <td>
+                                    <a href="/Product/UpdateProduct/@item.productId" class="btn btn-outline-primary">Düzenle</a>
+                                    <a href="/Product/DeleteProduct/@item.productId" onclick="return confirm('Eminmisiniz ?')" class="btn btn-outline-danger">Sil</a>
+                                    <a href="/Product/ProductDetail/@item.productId" class="btn btn-outline-info">Sitede Gör</a>
+                                </td>
+                            </tr>
+                            counter++;
+                        }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,4 @@
-@model List<ResultCategoryDto>
+@model List<ResultEmployeeDto>
 @{
     ViewBag.Title = "title";
     Layout = "/Views/Admin/Index.cshtml";
@@ -11,10 +11,10 @@
             <div class="bg-light rounded h-100 p-4">
                 <div class="row">
                     <div class="col-6 text-start">
-                        <h6 class="mb-4">Kategory Tablosu</h6>
+                        <h6 class="mb-4">Personel Listesi</h6>
                     </div>
                     <div class="col-6 text-end">
-                        <a href="/Category/CreateCategory" class="btn btn-outline-primary mb-4">Yeni Kategori Ekle</a>
+                        <a href="/Employees/CreateEmployee" class="btn btn-outline-primary mb-4">Yeni  Personel Girişi</a>
                    </div>
                 </div>
                 <div class="table-responsive">
@@ -22,8 +22,9 @@
                         <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Kategory Adı</th>
-                            <th scope="col">Kategory Durumu</th>
+                            <th scope="col">Personal Adı</th>
+                            <th scope="col">Ünvan</th>
+                            <th scope="col">Durum</th>
                             <th scope="col">İşlemler</th>
                         </tr>
                         </thead>
@@ -35,9 +36,10 @@
                         {
                             <tr>
                                 <th scope="row">@counter</th>
-                                <td>@item.CategoryName</td>
+                                <td>@item.Name</td>
+                                <td>@item.Title</td>
                                 <td>
-                                    @if (item.CategoryStatus)
+                                    @if (item.Status)
                                     {
                                         <span class="badge bg-success p-2">Aktif</span>
                                     }
@@ -47,8 +49,8 @@
                                     }
                                 </td>
                                 <td>
-                                    <a href="/Category/UpdateCategory/@item.CategoryId" class="btn btn-outline-primary">Düzenle</a>
-                                    <a href="/Category/DeleteCategory/@item.CategoryId" onclick="return confirm('Eminmisiniz ?')" class="btn btn-outline-danger">Sil</a>
+                                    <a href="/Employees/UpdateEmployee/@item.EmployeeId" class="btn btn-outline-primary">Düzenle</a>
+                                    <a href="/Employees/DeleteEmployee/@item.EmployeeId" onclick="return confirm('Eminmisiniz ?')" class="btn btn-outline-danger">Sil</a>
                                 </td>
                             </tr>
                             counter++;

@@ -1,0 +1,50 @@
+@model CreateProductDto
+
+@{
+    ViewBag.Title = "title";
+    Layout = "/Views/Admin/Index.cshtml";
+}
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-12">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">Ürün ekle</h6>
+                <form asp-action="CreateCategory" method="post">
+                    <div class="mb-3">
+                        <label for="categoryName" class="form-label fw-bold">İlan Başlığı</label>
+                        <input type="text" class="form-control" id="categoryName" asp-for="title">
+                    </div>
+                    <div class="mb-3">
+                        <label for="categoryName" class="form-label fw-bold">Şehir</label>
+                        <input type="text" class="form-control" id="categoryName" asp-for="title">
+                    </div>
+                    <div class="mb-3">
+                        <label for="categoryName" class="form-label fw-bold">İlçe</label>
+                        <input type="text" class="form-control" id="categoryName" asp-for="title">
+                    </div>
+                    <div class="mb-3">
+                        <label for="categoryName" class="form-label fw-bold">Kategori</label>
+                        @Html.DropDownListFor(x => x.productCategory, ( List<SelectListItem>)ViewBag.CategoryList, new {@class = "form-control"})
+                    </div>
+                    <div class="mb-3">
+                        <label for="categoryName" class="form-label fw-bold">Fiyat</label>
+                        <input type="text" class="form-control" id="categoryName" asp-for="title">
+                    </div>
+                    <div class="mb-3">
+                        <label for="categoryName" class="form-label fw-bold">Tür</label>
+                        <input type="text" class="form-control" id="categoryName" asp-for="title">
+                    </div>
+                    <div class="mb-3">
+                        <label for="categoryName" class="form-label fw-bold">Kapak Fotograf</label>
+                        <input type="text" class="form-control" id="categoryName" asp-for="title">
+                    </div>
+                    <div class="mb-3">
+                        <label for="categoryName" class="form-label fw-bold">İlan Açık Adresi</label>
+                        <textarea asp-for="address" class="form-control" rows="5"></textarea>
+                    </div>
+                    <button class="btn btn-primary" type="submit">İlanı Kaydet</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
