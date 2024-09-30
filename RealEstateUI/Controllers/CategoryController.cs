@@ -42,7 +42,7 @@ public class CategoryController : Controller
             return RedirectToAction("Index");
         }
         return View(createCategoryDto);
-    }
+    }         
     public async Task<IActionResult> DeleteCategory(int id)
     {
         var client = _httpClientFactory.CreateClient();
