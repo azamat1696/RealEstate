@@ -40,5 +40,42 @@ public class EmployeesController : Controller
             return RedirectToAction("Index");
         }
         return View(createEmployeeDto);
-    }   
+    }
+    public async Task<IActionResult> DeleteEmployees(int id)
+    {
+        var client = _httpClientFactory.CreateClient();
+        var response = await client.DeleteAsync($"http://localhost:5059/api/Employees/{id}");
+        if (response.IsSuccessStatusCode)
+        {
+            
+            return RedirectToAction("Index");
+        }
+        return NotFound();
+    }
+    [HttpGet]
+    public async Task<IActionResult> UpdateEmployees(int id)
+    {
+        var client = _httpClientFactory.CreateClient();
+        var response = await client.GetAsync($"http://localhost:5059/api/Employees/{id}");
+        if (response.IsSuccessStatusCode)
+        {
+            var jsonData = await response.Content.ReadAsStringAsync();
+            var employee = JsonConvert.DeserializeObject<UpdateEmployeeDto>(jsonData);
+            return View(employee);
+        }
+        return NotFound();
+    }
+    [HttpPost]
+    public async Task<IActionResult> UpdateEmployees(UpdateEmployeeDto updateEmployeeDto)
+    {
+        var client = _httpClientFactory.CreateClient();
+        var jsonData = JsonConvert.SerializeObject(updateEmployeeDto);
+        var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
+        var response = await client.PutAsync("http://localhost:5059/api/Employees", content);
+        if (response.IsSuccessStatusCode)
+        {
+            return RedirectToAction("Index");
+        }
+        return View(updateEmployeeDto);
+    }
 }
