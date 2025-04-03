@@ -9,10 +9,10 @@
         <div class="col-sm-12 col-xl-12">
             <div class="bg-light rounded h-100 p-4">
                 <h6 class="mb-4">Ürün ekle</h6>
-                <form asp-action="CreateCategory" method="post">
+                <form asp-action="CreateProduct" method="post">
                     <div class="mb-3">
                         <label for="categoryName" class="form-label fw-bold">İlan Başlığı</label>
-                        <input type="text" class="form-control" id="categoryName" asp-for="title">
+                        <input type="text" class="form-control" id="title" asp-for="title">
                     </div>
                     <div class="mb-3">
                         <label for="categoryName" class="form-label fw-bold">Şehir</label>
@@ -24,7 +24,9 @@
                     </div>
                     <div class="mb-3">
                         <label for="categoryName" class="form-label fw-bold">Kategori</label>
-                        @Html.DropDownListFor(x => x.productCategory, ( List<SelectListItem>)ViewBag.CategoryList, new {@class = "form-control"})
+                        @Html.DropDownListFor(x => x.productCategory,
+                            ( List<SelectListItem>)ViewBag.CategoryList, 
+                            new {@class = "form-control"})
                     </div>
                     <div class="mb-3">
                         <label for="categoryName" class="form-label fw-bold">Fiyat</label>
@@ -36,7 +38,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="categoryName" class="form-label fw-bold">Kapak Fotograf</label>
-                        <input type="text" class="form-control" id="categoryName" asp-for="title">
+                        <input type="file" class="form-control" id="categoryName" asp-for="title">
                     </div>
                     <div class="mb-3">
                         <label for="categoryName" class="form-label fw-bold">İlan Açık Adresi</label>
