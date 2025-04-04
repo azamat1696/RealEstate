@@ -1,52 +1,52 @@
-using System.Text;
 using Microsoft.AspNetCore.Mvc;
+using System.Text;
 using Newtonsoft.Json;
-using RealEstateUI.Dto.CategoryDtos;
+using RealEstateUI.Dto.WhoWeAreDtos;
 
 namespace RealEstateUI.Controllers;
 
-public class CategoryController : Controller
+public class WhoWeAreController : Controller
 {
     private readonly IHttpClientFactory _httpClientFactory;
-    public CategoryController(IHttpClientFactory httpClientFactory)
+    public WhoWeAreController(IHttpClientFactory httpClientFactory)
     {
         _httpClientFactory = httpClientFactory;
     }
     public async Task<IActionResult> Index()
     {
         var client = _httpClientFactory.CreateClient();
-        var response = await client.GetAsync("http://localhost:5059/api/Categories");
+        var response = await client.GetAsync("http://localhost:5059/api/WhoWeAreDetail");
         if (response.IsSuccessStatusCode)
         {
            var jsonData = await response.Content.ReadAsStringAsync();
-           var categories = JsonConvert.DeserializeObject<List<ResultCategoryDto>>(jsonData);
-           return View(categories);
+           var result = JsonConvert.DeserializeObject<List<ResultWhoWeAreDto>>(jsonData);
+           return View(result);
            
         }
         return View();
     }
     [HttpGet]
-    public IActionResult CreateCategory()
+    public IActionResult CreateWhoWeAre()
     {
         return View();
     }
     [HttpPost]
-    public async Task<IActionResult> CreateCategory(CreateCategoryDto createCategoryDto)
+    public async Task<IActionResult> CreateWhoWeAre(CreateWhoWeAreDto createWhoWeAreDto)
     {
         var client = _httpClientFactory.CreateClient();
-        var jsonData = JsonConvert.SerializeObject(createCategoryDto);
+        var jsonData = JsonConvert.SerializeObject(createWhoWeAreDto);
         var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
-        var response = await client.PostAsync("http://localhost:5059/api/Categories", content);
+        var response = await client.PostAsync("http://localhost:5059/api/WhoWeAreDetail", content);
         if (response.IsSuccessStatusCode)
         {
             return RedirectToAction("Index");
         }
-        return View(createCategoryDto);
+        return View(createWhoWeAreDto);
     }
-    public async Task<IActionResult> DeleteCategory(int id)
+    public async Task<IActionResult> DeleteWhoWeAre(int id)
     {
         var client = _httpClientFactory.CreateClient();
-        var response = await client.DeleteAsync($"http://localhost:5059/api/Categories/{id}");
+        var response = await client.DeleteAsync($"http://localhost:5059/api/WhoWeAreDetail/{id}");
         if (response.IsSuccessStatusCode)
         {
             
@@ -55,29 +55,29 @@ public class CategoryController : Controller
         return NotFound();
     }
     [HttpGet]
-    public async Task<IActionResult> UpdateCategory(int id)
+    public async Task<IActionResult> UpdateWhoWeAre(int id)
     {
         var client = _httpClientFactory.CreateClient();
-        var response = await client.GetAsync($"http://localhost:5059/api/Categories/{id}");
+        var response = await client.GetAsync($"http://localhost:5059/api/WhoWeAreDetail/{id}");
         if (response.IsSuccessStatusCode)
         {
             var jsonData = await response.Content.ReadAsStringAsync();
-            var category = JsonConvert.DeserializeObject<UpdateCategoryDto>(jsonData);
-            return View(category);
+            var result = JsonConvert.DeserializeObject<UpdateWhoWeAreDto>(jsonData);
+            return View(result);
         }
         return NotFound();
     }
     [HttpPost]
-    public async Task<IActionResult> UpdateCategory(UpdateCategoryDto updateCategoryDto)
+    public async Task<IActionResult> UpdateWhoWeAre(UpdateWhoWeAreDto updateWhoWeAreDto)
     {
         var client = _httpClientFactory.CreateClient();
-        var jsonData = JsonConvert.SerializeObject(updateCategoryDto);
+        var jsonData = JsonConvert.SerializeObject(updateWhoWeAreDto);
         var content = new StringContent(jsonData, Encoding.UTF8, "application/json");
-        var response = await client.PutAsync("http://localhost:5059/api/Categories", content);
+        var response = await client.PutAsync("http://localhost:5059/api/WhoWeAreDetail", content);
         if (response.IsSuccessStatusCode)
         {
             return RedirectToAction("Index");
         }
-        return View(updateCategoryDto);
+        return View(updateWhoWeAreDto);
     }
 }

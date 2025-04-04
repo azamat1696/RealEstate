@@ -1,8 +1,8 @@
 namespace RealEstateUI.Dto.WhoWeAreDtos;
 
-public class ResultWhoWeAreDto
+public class UpdateWhoWeAreDto
 {
-    public int WhoWeAreDetailId { get; set; }
+    public int whoWeAreDetailId { get; set; }
     public string title { get; set; }
     public string subTitle { get; set; }
     public string description1 { get; set; }

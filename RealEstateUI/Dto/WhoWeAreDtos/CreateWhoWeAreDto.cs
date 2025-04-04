@@ -1,8 +1,7 @@
 namespace RealEstateUI.Dto.WhoWeAreDtos;
 
-public class ResultWhoWeAreDto
+public class CreateWhoWeAreDto
 {
-    public int WhoWeAreDetailId { get; set; }
     public string title { get; set; }
     public string subTitle { get; set; }
     public string description1 { get; set; }

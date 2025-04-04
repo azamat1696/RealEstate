@@ -1,0 +1,37 @@
+@model CreateWhoWeAreDto
+
+@{
+    ViewBag.Title = "Create Who We Are";
+    Layout = "/Views/Admin/Index.cshtml";
+}
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-12">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">Yeni Biz Kimiz Ekleme</h6>
+                <form method="post">
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Başlık</label>
+                        <input type="text" class="form-control"  asp-for="title">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Alt Başlık</label>
+                        <input type="text" class="form-control"   asp-for="subTitle">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Açıklama 1</label>
+                        <textarea rows="5" class="form-control" asp-for="description1">
+                        </textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Açıklama 2</label>
+                        <textarea rows="5" class="form-control"  asp-for="description2">
+                       </textarea>
+                    </div>
+                    <button class="btn btn-primary" type="submit"> Kaydet</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

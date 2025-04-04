@@ -13,7 +13,7 @@ public class CategoryRepository: ICategoryRepository
     }
     public async void CreateCategoryAsync(CreateCategoryDto createCategoryDto)
     {
-        string query = "INSERT INTO categroies (CategoryName, CategoryStatus) VALUES (@CategoryName, @CategoryStatus)";
+        string query = "INSERT INTO categories (CategoryName, CategoryStatus) VALUES (@CategoryName, @CategoryStatus)";
         var parameters = new DynamicParameters();
         parameters.Add("@CategoryName", createCategoryDto.CategoryName);
         parameters.Add("@CategoryStatus", createCategoryDto.CategoryStatus);
@@ -24,7 +24,7 @@ public class CategoryRepository: ICategoryRepository
     }
     public async Task<List<ResultCategoryDto>> GetAllCategoryAsync()
     {
-         string query = "SELECT * FROM categroies";
+         string query = "SELECT * FROM categories";
          using (var connection = _context.CreateConnection())
          {
              var values = await connection.QueryAsync<ResultCategoryDto>(query);
@@ -33,7 +33,7 @@ public class CategoryRepository: ICategoryRepository
     }
     public async void DeleteCategoryAsync(int categoryId)
     {
-        string query = "DELETE FROM categroies WHERE CategoryId = @CategoryId";
+        string query = "DELETE FROM categories WHERE CategoryId = @CategoryId";
         var parameters = new DynamicParameters();
         parameters.Add("@CategoryId", categoryId);
         using (var connection = _context.CreateConnection())
@@ -43,7 +43,7 @@ public class CategoryRepository: ICategoryRepository
     }
     public async Task UpdateCategoryAsync(UpdateCategoryDto updateCategoryDto)
     {
-        string query = "UPDATE categroies SET CategoryName = @CategoryName, CategoryStatus = @CategoryStatus WHERE CategoryId = @CategoryId";
+        string query = "UPDATE categories SET CategoryName = @CategoryName, CategoryStatus = @CategoryStatus WHERE CategoryId = @CategoryId";
         var parameters = new DynamicParameters();
         parameters.Add("@CategoryName", updateCategoryDto.CategoryName);
         parameters.Add("@CategoryStatus", updateCategoryDto.CategoryStatus);
@@ -55,7 +55,7 @@ public class CategoryRepository: ICategoryRepository
     }
     public async Task<GetByIdCategoryDto> GetByIdCategoryAsync(int categoryId)
     {
-        string query = "SELECT * FROM categroies WHERE CategoryId = @CategoryId";
+        string query = "SELECT * FROM categories WHERE CategoryId = @CategoryId";
         var parameters = new DynamicParameters();
         parameters.Add("@CategoryId", categoryId);
         using (var connection = _context.CreateConnection())

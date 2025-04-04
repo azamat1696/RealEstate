@@ -7,15 +7,15 @@ public interface IStatisticsRepository
     int InactiveCategoryCount();
     int PropertyCount();
     int ApartmentCount();
-    string EmployeeWithMostProperties();
-    string CategoryWithMostProperties();
+    string? EmployeeWithMostProperties();
+    string? CategoryWithMostProperties();
     decimal AveragePropertyByRentPrice();
     decimal AveragePropertyBySalePrice();
-    string CityNameByMaxProductCount();
+    string? CityNameByMaxProductCount();
     int DifferentCityCount();
     decimal LastPropertyPrice();
-    string NewestBuildingYear();
-    string OldestBuildingYear();
+    string? NewestBuildingYear();
+    string? OldestBuildingYear();
     int AverageRoomCount();
     int ActiveEmployeeCount();
 }
