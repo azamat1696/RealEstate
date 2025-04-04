@@ -1,0 +1,31 @@
+@model UpdateServiceDto
+
+@{
+    ViewBag.Title = "Update Service";
+    Layout = "/Views/Admin/Index.cshtml";
+}
+
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-12">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">Hizmet Güncelle</h6>
+                <form method="post">
+                    <input type="hidden" asp-for="ServiceId" />
+                    <div class="mb-3">
+                        <label class="form-label fw-bold">Başlık</label>
+                        <input type="text" class="form-control" asp-for="ServiceName">
+                    </div>
+                    <div class="mb-3">
+                        <label for="categoryStatus" class="form-label fw-bold">Hizmet Durumu</label>
+                        <select class="form-select" id="categoryStatus" asp-for="ServiceStatus">
+                            <!option value="true" @(Model.ServiceStatus ? "selected" : String.Empty)>Aktif</!option>
+                            <!option value="false" @(Model.ServiceStatus ? String.Empty : "selected")>Pasif</!option>
+                        </select>
+                    </div>
+                    <button class="btn btn-primary" type="submit">Kaydet</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+@model List<ResultServiceDto>
+@{
+    ViewBag.Title = "title";
+    Layout = "/Views/Admin/Index.cshtml";
+}
+
+<!-- Table Start -->
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-12">
+            <div class="bg-light rounded h-100 p-4">
+                <div class="row">
+                    <div class="col-6 text-start">
+                        <h6 class="mb-4">Servis Tablosu</h6>
+                    </div>
+                    <div class="col-6 text-end">
+                        <a href="/Service/CreateService" class="btn btn-outline-primary mb-4">Yeni Ekle</a>
+                   </div>
+                </div>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Başlık</th>
+                            <th scope="col">Durum</th>
+                            <th scope="col">İşlemler</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        @{
+                            int counter = 1;
+                        }
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <th scope="row">@counter</th>
+                                <td>@item.ServiceName</td>
+                                <td>
+                                    @if (item.ServiceStatus)
+                                    {
+                                        <span class="badge bg-success p-2">Aktif</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-danger p-2">Pasif</span>
+                                    }
+                                </td>
+                                <td>
+                                    <a href="/Service/UpdateService/@item.ServiceId" class="btn btn-outline-primary">Düzenle</a>
+                                    <a href="/Service/DeleteService/@item.ServiceId" onclick="return confirm('Eminmisiniz ?')" class="btn btn-outline-danger">Sil</a>
+                                </td>
+                            </tr>
+                            counter++;
+                        }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
