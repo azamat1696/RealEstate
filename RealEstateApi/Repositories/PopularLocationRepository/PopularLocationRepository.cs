@@ -21,7 +21,7 @@ public class PopularLocationRepository : IPopularLocationRepository
 
     public async void CreatePopularLocationAsync(CreatePopularLocationDto createPopularLocationDto)
     {
-       string query = "INSERT INTO popular_location (city_name, image_url) VALUES (@CityName, @ImageUrl)";
+       string query = "INSERT INTO popular_location (CityName, ImageUrl) VALUES (@CityName, @ImageUrl)";
        var parameters = new DynamicParameters();
        parameters.Add("@CityName", createPopularLocationDto.CityName); 
        parameters.Add("@ImageUrl", createPopularLocationDto.ImageUrl);
@@ -40,7 +40,7 @@ public class PopularLocationRepository : IPopularLocationRepository
 
     public async Task UpdatePopularLocationAsync(UpdatePopularLocationDto updatePopularLocationDto)
     {
-         string query = "UPDATE popular_location SET city_name = @CityName, image_url = @ImageUrl WHERE LocationId = @LocationId";
+         string query = "UPDATE popular_location SET CityName = @CityName, ImageUrl = @ImageUrl WHERE LocationId = @LocationId";
          var parameters = new DynamicParameters();
          parameters.Add("@CityName", updatePopularLocationDto.CityName);
          parameters.Add("@ImageUrl", updatePopularLocationDto.ImageUrl); 

@@ -22,7 +22,7 @@ public class BottomGridController : Controller
     [HttpPost]
     public async Task<IActionResult> CreateBottomGrid([FromBody] CreateBottomGridDto createBottomGridDto)
     {
-        _bottomGridRepository.CreateBottomGridAsync(createBottomGridDto);
+         _bottomGridRepository.CreateBottomGridAsync(createBottomGridDto);
         return Ok("BottomGrid Created");
     }
     [HttpDelete("{bottomGridId}")]
