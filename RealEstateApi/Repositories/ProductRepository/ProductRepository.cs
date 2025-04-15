@@ -30,4 +30,24 @@ public class ProductRepository : IProductRepository
             return values.ToList();
         }
     }
+    public async void ProductDealOfTheDayStatusChangeToActive(int id)
+    {
+        string query = "UPDATE products SET DealOfTheDay = 1 WHERE ProductId = @id";
+        var parameters = new DynamicParameters();
+        parameters.Add("id", id);
+        using (var connection = _context.CreateConnection())
+        {
+           await connection.ExecuteAsync(query, parameters);
+        }
+    }
+    public async void ProductDealOfTheDayStatusChangeToPassive(int id)
+    {
+        string query = "UPDATE products SET DealOfTheDay = 0 WHERE ProductId = @id";
+        var parameters = new DynamicParameters();
+        parameters.Add("id", id);
+        using (var connection = _context.CreateConnection())
+        {
+           await connection.ExecuteAsync(query, parameters);
+        }
+    }
 }

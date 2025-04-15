@@ -23,4 +23,16 @@ public class ProductsController : Controller
         var products = await _productRepository.GetAllProductsWithCategoryAsync();
         return Ok(products);
     }
+    [HttpPut("DealOfTheDayStatusChangeToActive/{id}")]
+    public async Task<IActionResult> ProductDealOfTheDayStatusChangeToActive(int id)
+    {
+        _productRepository.ProductDealOfTheDayStatusChangeToActive(id);
+        return Ok("Günün Fırsatı Aktif Edildi");
+    }
+    [HttpPut("DealOfTheDayStatusChangeToPassive/{id}")]
+    public async Task<IActionResult> ProductDealOfTheDayStatusChangeToPassive(int id)
+    {
+        _productRepository.ProductDealOfTheDayStatusChangeToPassive(id);
+        return Ok("Günün Fırsatı Pasif Edildi");
+    }
 }

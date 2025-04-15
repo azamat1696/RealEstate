@@ -6,4 +6,8 @@ public interface IProductRepository
 {
     Task<List<ResultProductDto>> GetAllProductsAsync();
     Task<List<ResultProductWithCategoryDto>> GetAllProductsWithCategoryAsync();
+    
+    void ProductDealOfTheDayStatusChangeToActive(int id);
+    void ProductDealOfTheDayStatusChangeToPassive(int id);
+    
 }
