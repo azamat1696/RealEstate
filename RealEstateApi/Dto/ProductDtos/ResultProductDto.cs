@@ -10,4 +10,5 @@ public class ResultProductDto
     public string Address { get; set; }
     public string Description { get; set; }
     public int ProductCategory { get; set; }
+    public bool dealOfTheDay { get; set; }
 }

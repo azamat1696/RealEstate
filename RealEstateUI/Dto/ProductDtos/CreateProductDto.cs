@@ -11,6 +11,8 @@ public class CreateProductDto
     public string description { get; set; }
     public string coverImage { get; set; }
     public string type { get; set; }
+    public bool dealOfTheDay { get; set; }
+
     public int productCategory { get; set; }
 
 }

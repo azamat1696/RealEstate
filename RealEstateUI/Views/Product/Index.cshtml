@@ -30,6 +30,7 @@
                             <th scope="col">Kategory</th>
                             <th scope="col">Fiyat</th>
                             <th scope="col">Tür</th>
+                            <th scope="col">Günün Fırsatı</th>
                             <th scope="col">İşlemler</th>
                         </tr>
                         </thead>
@@ -49,6 +50,16 @@
                                 <td>@item.categoryName</td>
                                 <td>@item.price ₺</td>
                                 <td>@item.type</td>
+                                <td>
+                                    @if (@item.dealOfTheDay)
+                                    {
+                                        <a href="/Product/ProductDetail/@item.productId" class="btn btn-outline-secondary">Passif Yap</a>
+                                    }
+                                    else
+                                    {
+                                        <a href="/Product/ProductDetail/@item.productId" class="btn btn-outline-success">Aktif Yap</a>
+                                    }
+                                </td>
                                 <td>
                                     <a href="/Product/UpdateProduct/@item.productId" class="btn btn-outline-primary">Düzenle</a>
                                     <a href="/Product/DeleteProduct/@item.productId" onclick="return confirm('Eminmisiniz ?')" class="btn btn-outline-danger">Sil</a>
