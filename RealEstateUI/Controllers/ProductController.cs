@@ -61,4 +61,27 @@ public class ProductController : Controller
         }
         return View();
     }
+    public async Task<IActionResult> DealOfTheDayStatusChangeToActive(int id)
+    {
+        var client = _httpClientFactory.CreateClient();
+        var response = await client.PutAsync($"http://localhost:5059/api/Products/DealOfTheDayStatusChangeToActive/{id}", null);
+        if (response.IsSuccessStatusCode)
+        {
+            return RedirectToAction("Index");
+        }
+
+        return View();
+    }
+    public async Task<IActionResult> DealOfTheDayStatusChangeToPassive(int id)
+    {
+        var client = _httpClientFactory.CreateClient();
+        var response = await client.PutAsync($"http://localhost:5059/api/Products/DealOfTheDayStatusChangeToPassive/{id}", null);
+        if (response.IsSuccessStatusCode)
+        {
+            return RedirectToAction("Index");
+        }
+
+        return View();
+    }
+    
 }

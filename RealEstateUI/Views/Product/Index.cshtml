@@ -53,11 +53,11 @@
                                 <td>
                                     @if (@item.dealOfTheDay)
                                     {
-                                        <a href="/Product/ProductDetail/@item.productId" class="btn btn-outline-secondary">Passif Yap</a>
+                                        <a href="/Product/DealOfTheDayStatusChangeToPassive/@item.productId" class="btn btn-outline-secondary">Passif Yap</a>
                                     }
                                     else
                                     {
-                                        <a href="/Product/ProductDetail/@item.productId" class="btn btn-outline-success">Aktif Yap</a>
+                                        <a href="/Product/DealOfTheDayStatusChangeToActive/@item.productId" onclick="return confirm('Lüten en çok 3 tane ilan aktif yapın tasarımı bozabilir')" class="btn btn-outline-success">Aktif Yap</a>
                                     }
                                 </td>
                                 <td>
