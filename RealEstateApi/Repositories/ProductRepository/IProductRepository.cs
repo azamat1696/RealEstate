@@ -10,4 +10,6 @@ public interface IProductRepository
     void ProductDealOfTheDayStatusChangeToActive(int id);
     void ProductDealOfTheDayStatusChangeToPassive(int id);
     
+    Task<List<ResultLastFiveProductWithCategoryDto>> GetLastFiveProductsAsync();
+    
 }

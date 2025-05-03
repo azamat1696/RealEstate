@@ -1,6 +1,6 @@
 namespace RealEstateApi.Dto.ProductDtos;
 
-public class ResultProductDto
+public class ResultLastFiveProductWithCategoryDto
 {
     public int ProductId { get; set; }
     public string Title { get; set; }
@@ -10,6 +10,7 @@ public class ResultProductDto
     public string Address { get; set; }
     public string Description { get; set; }
     public int ProductCategory { get; set; }
+    public string CategoryName { get; set; }
     public string Type { get; set; }
     public bool dealOfTheDay { get; set; }
     public DateTime AdvertisementDate { get; set; }

@@ -35,4 +35,10 @@ public class ProductsController : Controller
         _productRepository.ProductDealOfTheDayStatusChangeToPassive(id);
         return Ok("Günün Fırsatı Pasif Edildi");
     }
+    [HttpGet("LastFiveProductList")]
+    public async Task<IActionResult> GetLastFiveProducts()
+    {
+        var products = await _productRepository.GetLastFiveProductsAsync();
+        return Ok(products);
+    }
 }

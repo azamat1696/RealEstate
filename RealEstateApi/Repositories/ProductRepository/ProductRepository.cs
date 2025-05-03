@@ -50,4 +50,14 @@ public class ProductRepository : IProductRepository
            await connection.ExecuteAsync(query, parameters);
         }
     }
+
+    public async Task<List<ResultLastFiveProductWithCategoryDto>> GetLastFiveProductsAsync()
+    {
+        string query = "SELECT *, CategoryName FROM products p \nLEFT JOIN categories c ON p.ProductCategory = c.CategoryId \nWHERE p.Type='Kiralık' ORDER BY p.ProductId DESC LIMIT 5";
+        using (var connection = _context.CreateConnection())
+        {
+            var values = await connection.QueryAsync<ResultLastFiveProductWithCategoryDto>(query);
+            return values.ToList();
+        }
+    }
 }

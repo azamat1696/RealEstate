@@ -12,5 +12,6 @@ public class ResultProductDto
     public string coverImage { get; set; }
     public string type { get; set; }
     public bool dealOfTheDay { get; set; }
+    public string AdvertisementDate { get; set; }
 
 }
