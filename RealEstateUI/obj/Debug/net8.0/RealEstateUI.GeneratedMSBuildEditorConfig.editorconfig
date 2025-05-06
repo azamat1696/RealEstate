@@ -138,8 +138,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0NvbXBvbmVudHMvX0Rhc2hib2FyZExhc3RGaXZlUHJvZHVjdENvbXBvbmVudFBhcnRpYWwvRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/Views/Shared/Components/_DashboardLastFourMessageComponentPartial/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0NvbXBvbmVudHMvX0Rhc2hib2FyZExhc3RGb3VyTWVzc2FnZUNvbXBvbmVudFBhcnRpYWwvRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/Views/Shared/Components/_DashboardStatisticsComponentPartial/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0NvbXBvbmVudHMvX0Rhc2hib2FyZFN0YXRpc3RpY3NDb21wb25lbnRQYXJ0aWFsL0RlZmF1bHQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/Views/Shared/Components/_DashboardTodoListComponentPartial/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0NvbXBvbmVudHMvX0Rhc2hib2FyZFRvZG9MaXN0Q29tcG9uZW50UGFydGlhbC9EZWZhdWx0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/Views/Shared/Components/_DefaultBottomGridComponentPartial/Default.cshtml]
