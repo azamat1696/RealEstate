@@ -1,3 +1,4 @@
+using RealEstateApi.Hubs;
 using RealEstateApi.Models.DapperContext;
 using RealEstateApi.Repositories.BottomGridRepository;
 using RealEstateApi.Repositories.CategoryRepository;
@@ -26,13 +27,24 @@ builder.Services.AddTransient<IEmployeeRepository,EmployeeRepository>();
 builder.Services.AddTransient<IStatisticsRepository, StatisticsRepository>();
 builder.Services.AddTransient<IContactRepository, ContactRepository>();
 builder.Services.AddTransient<ITodoListRepository, TodoListRepository>();
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("CorsPolicy", builders =>
+    {
+        builders.AllowAnyHeader()
+            .AllowAnyMethod()
+            .SetIsOriginAllowed((host) => true)
+            .AllowCredentials();
+    });
+} );
+builder.Services.AddSignalR();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddHttpClient();
 builder.Services.AddControllers();
 var app = builder.Build();
-
-
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -41,8 +53,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("CorsPolicy");
+
 app.UseHttpsRedirection();
 app.MapControllers();
+app.MapHub<SignalRHub>("/signalrhub");
 /*
 var summaries = new[]
 {

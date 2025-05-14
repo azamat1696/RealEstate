@@ -1,7 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using System.Text;
-using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 namespace RealEstateUI.Controllers;
 
 public class StatisticsController : Controller
