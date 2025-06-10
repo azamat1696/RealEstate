@@ -60,4 +60,15 @@ public class ProductRepository : IProductRepository
             return values.ToList();
         }
     }
+    public async Task<List<ResultProductAdvertListWithCategoryByEmployeeDto>> GetProductAdvertsListByEmployeeIdAsync(int employeeId)
+    {
+        string query = "SELECT *,CategoryName FROM products p LEFT JOIN categories c ON p.ProductCategory = c.CategoryId WHERE p.EmployeeId = @employeeId";
+        var parameters = new DynamicParameters();
+        parameters.Add("employeeId", employeeId);
+        using (var connection = _context.CreateConnection())
+        {
+            var values = await connection.QueryAsync<ResultProductAdvertListWithCategoryByEmployeeDto>(query, parameters);
+            return values.ToList();
+        }
+    }
 }

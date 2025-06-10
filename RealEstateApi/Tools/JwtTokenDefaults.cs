@@ -4,6 +4,6 @@ public class JwtTokenDefaults
 {
     public const string ValidAudience = "http://localhost";
     public const string ValidIssuer = "http://localhost";
-    public const string Key = "RealEstate2314löfdöfmsdçöff";
+    public const string Key = "your-very-long-secret-key-of-at-least-32-characters";
     public const int Expire = 5;
 }

@@ -24,5 +24,12 @@ app.UseAuthorization();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+    app.UseEndpoints(endpoints =>
+    {
+        endpoints.MapControllerRoute(
+            name: "EstateAgent",
+            pattern: "{area:exists}/{controller=MyAdverts}/{action=Index}/{id?}"
+        );
+    });
 
 app.Run();

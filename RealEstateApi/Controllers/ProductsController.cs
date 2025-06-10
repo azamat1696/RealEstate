@@ -41,4 +41,10 @@ public class ProductsController : Controller
         var products = await _productRepository.GetLastFiveProductsAsync();
         return Ok(products);
     }
+    [HttpGet("ProductAdvertsListByEmployee/{employeeId}")]
+    public async Task<IActionResult> GetProductAdvertsListByEmployeeId(int employeeId)
+    {
+        var products = await _productRepository.GetProductAdvertsListByEmployeeIdAsync(employeeId);
+        return Ok(products);
+    }
 }

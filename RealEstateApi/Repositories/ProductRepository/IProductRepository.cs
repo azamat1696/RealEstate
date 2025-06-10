@@ -11,5 +11,6 @@ public interface IProductRepository
     void ProductDealOfTheDayStatusChangeToPassive(int id);
     
     Task<List<ResultLastFiveProductWithCategoryDto>> GetLastFiveProductsAsync();
+    Task<List<ResultProductAdvertListWithCategoryByEmployeeDto>> GetProductAdvertsListByEmployeeIdAsync(int employeeId);
     
 }
