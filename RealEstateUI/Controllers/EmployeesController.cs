@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using RealEstateUI.Dto.EmployeeDtos;
+using RealEstateUI.Services;
 
 namespace RealEstateUI.Controllers;
 
@@ -10,24 +11,30 @@ namespace RealEstateUI.Controllers;
 public class EmployeesController : Controller
 {
     private readonly IHttpClientFactory _httpClientFactory;
-    public EmployeesController(IHttpClientFactory clientFactory)
+    private readonly ILoginService _loginService;
+    public EmployeesController(IHttpClientFactory clientFactory, ILoginService loginService)
     {
+        _loginService = loginService;
+    
         _httpClientFactory = clientFactory;
     }
     public async Task<IActionResult> Index()
     {
+        var user = User.Claims;
+        var userId = _loginService.GetUserId;
+        
         var token = User.Claims.FirstOrDefault(x => x.Type == "realestatetoken")?.Value;
-        if (string.IsNullOrEmpty(token))
+        if (token != null)
         {
-            return RedirectToAction("Index", "Login");
+            var client = _httpClientFactory.CreateClient();
+            var response = await client.GetAsync("http://localhost:5059/api/Employees");
+            if (response.IsSuccessStatusCode)
+            {
+                var employees = await response.Content.ReadFromJsonAsync<List<ResultEmployeeDto>>();
+                return View(employees);
+            }
         }
-        var client = _httpClientFactory.CreateClient();
-        var response = await client.GetAsync("http://localhost:5059/api/Employees");
-        if (response.IsSuccessStatusCode)
-        {
-            var employees = await response.Content.ReadFromJsonAsync<List<ResultEmployeeDto>>();
-            return View(employees);
-        }
+       
         return View();
     }
     [HttpGet]

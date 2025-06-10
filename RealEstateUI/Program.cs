@@ -1,6 +1,10 @@
+using System.IdentityModel.Tokens.Jwt;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using RealEstateUI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
+JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Remove("sub"); // Remove the default "sub" claim mapping
 
 // Add services to the container.
 builder.Services.AddHttpClient();
@@ -14,6 +18,10 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddCo
     options.Cookie.SecurePolicy = CookieSecurePolicy.SameAsRequest; // Use Always for production
     options.Cookie.Name = "RealEstateAuthCookie";
 });
+
+
+builder.Services.AddHttpContextAccessor();
+builder.Services.AddScoped<ILoginService, LoginService>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

@@ -39,21 +39,22 @@ public class LoginController : Controller
             // Store the token in session or cookies as needed
             var tokenModel = JsonSerializer.Deserialize<JwtResponseModel>(token, new JsonSerializerOptions
             {
-               PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+               PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                PropertyNameCaseInsensitive = true
             });
             if (tokenModel != null)
             {
                 JwtSecurityTokenHandler tokenHandler = new JwtSecurityTokenHandler();
-                var jwtToken = tokenHandler.ReadJwtToken(tokenModel.Token);
+                var jwtToken = tokenHandler.ReadJwtToken(tokenModel.token);
                 var claims = jwtToken.Claims.ToList();
-                if (tokenModel.Token != null)
+                if (tokenModel.token != null)
                 {
-                    claims.Add(new Claim("realestatetoken", tokenModel.Token));
+                    claims.Add(new Claim("realestatetoken", tokenModel.token));
                     var identity = new ClaimsIdentity(claims, JwtBearerDefaults.AuthenticationScheme);
                     var authProps = new AuthenticationProperties
                     {
                         IsPersistent = true,
-                        ExpiresUtc = tokenModel.ExpireDate // Set the expiration time as needed
+                        ExpiresUtc = tokenModel.expireDate // Set the expiration time as needed
                     };
                     await HttpContext.SignInAsync(JwtBearerDefaults.AuthenticationScheme, new ClaimsPrincipal(identity), authProps);
                     return RedirectToAction("Index", "Employees");

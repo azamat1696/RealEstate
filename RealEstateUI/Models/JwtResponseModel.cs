@@ -2,6 +2,6 @@ namespace RealEstateUI.Models;
 
 public class JwtResponseModel
 {
-    public string Token { get; set; }
-    public DateTime ExpireDate { get; set; }
+    public string token { get; set; }
+    public DateTime expireDate { get; set; }
 }
