@@ -55,3 +55,11 @@
 /Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/bin/Debug/net8.0/System.Text.Json.dll
 /Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/bin/Debug/net8.0/System.Threading.Channels.dll
 /Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/bin/Debug/net8.0/runtimes/browser/lib/net8.0/System.Text.Encodings.Web.dll
+/Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/bin/Debug/net8.0/Microsoft.IdentityModel.Abstractions.dll
+/Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/bin/Debug/net8.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/bin/Debug/net8.0/Microsoft.IdentityModel.Logging.dll
+/Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.dll
+/Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/bin/Debug/net8.0/Microsoft.IdentityModel.Tokens.dll
+/Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/bin/Debug/net8.0/System.IdentityModel.Tokens.Jwt.dll

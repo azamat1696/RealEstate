@@ -1,10 +1,12 @@
 using System.Text;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using RealEstateUI.Dto.EmployeeDtos;
 
 namespace RealEstateUI.Controllers;
 
+[Authorize]
 public class EmployeesController : Controller
 {
     private readonly IHttpClientFactory _httpClientFactory;
@@ -14,6 +16,11 @@ public class EmployeesController : Controller
     }
     public async Task<IActionResult> Index()
     {
+        var token = User.Claims.FirstOrDefault(x => x.Type == "realestatetoken")?.Value;
+        if (string.IsNullOrEmpty(token))
+        {
+            return RedirectToAction("Index", "Login");
+        }
         var client = _httpClientFactory.CreateClient();
         var response = await client.GetAsync("http://localhost:5059/api/Employees");
         if (response.IsSuccessStatusCode)

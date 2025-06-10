@@ -56,7 +56,7 @@ public class LoginController : Controller
                         ExpiresUtc = tokenModel.ExpireDate // Set the expiration time as needed
                     };
                     await HttpContext.SignInAsync(JwtBearerDefaults.AuthenticationScheme, new ClaimsPrincipal(identity), authProps);
-                    return RedirectToAction("Index", "MyAdverts");
+                    return RedirectToAction("Index", "Employees");
                 }
             }
             return RedirectToAction("Index", "Home");
