@@ -18,6 +18,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Applications/MAMP/htdocs/RealEstateApi/RealEstateUI
 build_property._RazorSourceGeneratorDebug = 
 
+[/Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/Areas/EstateAgent/Views/Dashboard/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXMvRXN0YXRlQWdlbnQvVmlld3MvRGFzaGJvYXJkL0luZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/Areas/EstateAgent/Views/LayoutEstateAgent/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXMvRXN0YXRlQWdlbnQvVmlld3MvTGF5b3V0RXN0YXRlQWdlbnQvSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -212,6 +216,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [/Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/Views/Shared/Components/_EstateAgentLayoutSidebarComponentPartial/Default.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0NvbXBvbmVudHMvX0VzdGF0ZUFnZW50TGF5b3V0U2lkZWJhckNvbXBvbmVudFBhcnRpYWwvRGVmYXVsdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/Views/Shared/Components/_EstateAgentStatisticsComponentPartial/Default.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0NvbXBvbmVudHMvX0VzdGF0ZUFnZW50U3RhdGlzdGljc0NvbXBvbmVudFBhcnRpYWwvRGVmYXVsdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [/Applications/MAMP/htdocs/RealEstateApi/RealEstateUI/Views/Shared/Components/_HeaderViewComponentPartial/Default.cshtml]
