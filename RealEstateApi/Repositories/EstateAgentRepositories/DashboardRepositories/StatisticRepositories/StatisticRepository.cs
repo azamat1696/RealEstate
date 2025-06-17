@@ -55,7 +55,7 @@ public class StatisticRepository : IStatisticRepository
          
          using (var connection = _context.CreateConnection())
          {
-             var value = connection.QueryFirstOrDefault<int>(query);
+             var value = connection.QueryFirstOrDefault<int>(query,parameters);
              return value;
          }
     }

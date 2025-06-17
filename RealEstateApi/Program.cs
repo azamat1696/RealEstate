@@ -4,6 +4,10 @@ using RealEstateApi.Repositories.BottomGridRepository;
 using RealEstateApi.Repositories.CategoryRepository;
 using RealEstateApi.Repositories.ContactRepositories;
 using RealEstateApi.Repositories.EmployeeRespositories;
+using RealEstateApi.Repositories.EstateAgentRepositories.DashboardRepositories.ChartRepositories;
+using RealEstateApi.Repositories.EstateAgentRepositories.DashboardRepositories.LastProductRepositories;
+using RealEstateApi.Repositories.EstateAgentRepositories.DashboardRepositories.StatisticRepositories;
+using RealEstateApi.Repositories.MessageRepositories;
 using RealEstateApi.Repositories.PopularLocationRepository;
 using RealEstateApi.Repositories.ProductRepository;
 using RealEstateApi.Repositories.ServiceRepository;
@@ -27,7 +31,10 @@ builder.Services.AddTransient<IEmployeeRepository,EmployeeRepository>();
 builder.Services.AddTransient<IStatisticsRepository, StatisticsRepository>();
 builder.Services.AddTransient<IContactRepository, ContactRepository>();
 builder.Services.AddTransient<ITodoListRepository, TodoListRepository>();
-
+builder.Services.AddTransient<IStatisticRepository, StatisticRepository>();
+builder.Services.AddTransient<IChartRepository, ChartRepository>();
+builder.Services.AddTransient<ILastFiveProducts, LastFiveProducts>();
+builder.Services.AddTransient<IMessageRepository, MessageRepository>();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("CorsPolicy", builders =>

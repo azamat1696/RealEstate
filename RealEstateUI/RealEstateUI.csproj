@@ -22,4 +22,8 @@
       <Folder Include="Areas\EstateAgent\Models\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <AdditionalFiles Include="Views\Shared\Components\_EstateAgentChartComponentPartial\Default.cshtml" />
+    </ItemGroup>
+
 </Project>
