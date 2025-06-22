@@ -1,6 +1,6 @@
 @model List<ResultProductAdvertListWithCategoryByEmployeeDto>
 @{
-    ViewBag.Title = "My Adverts";
+    ViewBag.Title = "Pasif ilanlarım";
     Layout = "/Areas/EstateAgent/Views/LayoutEstateAgent/Index.cshtml";
 }
 <!-- Table Start -->
@@ -10,10 +10,10 @@
             <div class="bg-light rounded h-100 p-4">
                 <div class="row">
                     <div class="col-6 text-start">
-                        <h6 class="mb-4">Yayınladığınız İlanlar</h6>
+                        <h6 class="mb-4">Pasif İlanlar</h6>
                     </div>
                     <div class="col-6 text-end">
-                        <a href="/Product/CreateProduct" class="btn btn-outline-primary mb-4">Yeni Ürün Ekle</a>
+                        <a href="/EstateAgent/MyAdverts/CreateAdvert" class="btn btn-outline-primary mb-4">Yeni Ürün Ekle</a>
                    </div>
                 </div>
                 <div class="table-responsive">
@@ -41,16 +41,24 @@
                             <tr>
                                 <th scope="row">@counter</th>
                                 <td>@item.Title</td>
-                                <td>@item.Description</td>
+                                <td>
+                                    @(item.Description != null && item.Description.Length > 30 
+                                    ? item.Description.Substring(0, 30) + "..."
+                                    : item.Description)
+                                </td>
                                 <td>@item.City</td>
+                                <td>
+                                    @(item.Address != null && item.Address.Length > 30
+                                    ? item.Address.Substring(0, 30) + "..."
+                                    : item.Address)
+                                </td>
                                 <td>@item.District</td>
-                                <td>@item.Address</td>
                                 <td>@item.CategoryName</td>
                                 <td>@item.Price ₺</td>
                                 <td>@item.Type</td>
                                 <td>
                                     <a href="/Product/UpdateProduct/@item.ProductId" class="btn btn-outline-primary">Düzenle</a>
-                                    <a href="/Product/DeleteProduct/@item.ProductId" onclick="return confirm('Eminmisiniz ?')" class="btn btn-outline-danger">Sil</a>
+                                    <a href="/Product/DeleteProduct/@item.ProductId" onclick="return confirm('Eminmisiniz ?')" class="btn btn-outline-dark">Aktif Yap</a>
                                     <a href="/Product/ProductDetail/@item.ProductId" class="btn btn-outline-info">Sitede Gör</a>
                                 </td>
                             </tr>

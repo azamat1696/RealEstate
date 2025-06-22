@@ -13,7 +13,7 @@ public class MessageRepository : IMessageRepository
     }
     public async Task<List<ResultInBoxMessageDto>> GetInBoxLastThreeMessageListByReceiverIdAsync(int receiverId)
     {
-       string query = "SELECT * FROM messages WHERE Receiver = @receiverId ORDER BY MessageId DESC LIMIT 3";
+       string query = "SELECT MessageId,Name,Subject,Detail,SendDate,IsRead,image_url FROM messages  inner join app_user on Receiver=app_user.id WHERE Receiver = @receiverId ORDER BY MessageId DESC LIMIT 3";
        var parameters = new DynamicParameters();
        parameters.Add("@receiverId", receiverId);
        using (var connection = _context.CreateConnection())

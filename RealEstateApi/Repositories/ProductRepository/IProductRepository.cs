@@ -12,5 +12,8 @@ public interface IProductRepository
     
     Task<List<ResultLastFiveProductWithCategoryDto>> GetLastFiveProductsAsync();
     Task<List<ResultProductAdvertListWithCategoryByEmployeeDto>> GetProductAdvertsListByEmployeeIdAsync(int employeeId);
+    Task<List<ResultProductAdvertListWithCategoryByEmployeeDto>> GetProductAdvertsActiveListByEmployeeIdAsync(int employeeId);
+    Task<List<ResultProductAdvertListWithCategoryByEmployeeDto>> GetProductAdvertsPassiveListByEmployeeIdAsync(int employeeId);
+    Task CreateProductAsync(CreateProductDto createProductDto);
     
 }

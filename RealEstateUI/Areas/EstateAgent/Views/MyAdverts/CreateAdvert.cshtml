@@ -1,0 +1,56 @@
+@model CreateProductDto
+
+@{
+    ViewBag.Title = "İlan oluştur";
+    Layout = "/Areas/EstateAgent/Views/LayoutEstateAgent/Index.cshtml";
+}
+<div class="container-fluid pt-4 px-4">
+    <div class="row g-4">
+        <div class="col-sm-12 col-xl-12">
+            <div class="bg-light rounded h-100 p-4">
+                <h6 class="mb-4">Ürün ekle</h6>
+                <form method="post">
+                    <div class="mb-3">
+                        <label for="Title" class="form-label fw-bold">İlan Başlığı</label>
+                        <input type="text" class="form-control" id="Title" asp-for="Title">
+                    </div>
+                    <div class="mb-3">
+                        <label for="City" class="form-label fw-bold">Şehir</label>
+                        <input type="text" class="form-control" id="City" asp-for="City">
+                    </div>
+                    <div class="mb-3">
+                        <label for="District" class="form-label fw-bold">İlçe</label>
+                        <input type="text" class="form-control" id="District" asp-for="District">
+                    </div>
+                    <div class="mb-3">
+                        <label for="categoryName" class="form-label fw-bold">Kategori</label>
+                        @Html.DropDownListFor(x => x.ProductCategory,
+                            ( List<SelectListItem>)ViewBag.CategoryList, 
+                            new {@class = "form-control"})
+                    </div>
+                    <div class="mb-3">
+                        <label for="Price" class="form-label fw-bold">Fiyat</label>
+                        <input type="text" class="form-control" id="Price" asp-for="Price">
+                    </div>
+                    <div class="mb-3">
+                        <label for="Type" class="form-label fw-bold">Tür</label>
+                        <input type="text" class="form-control" id="Type" asp-for="Type">
+                    </div>
+                    <div class="mb-3">
+                        <label for="CoverImage" class="form-label fw-bold">Kapak Fotograf</label>
+                        <input type="text" class="form-control" id="CoverImage" asp-for="CoverImage">
+                    </div>
+                    <div class="mb-3">
+                        <label for="Address" class="form-label fw-bold">İlan Açık Adresi</label>
+                        <textarea asp-for="Address" id="Address" class="form-control" rows="5"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="Description" class="form-label fw-bold">İlan Açıklaması</label>
+                        <textarea asp-for="Description" id="Description" class="form-control" rows="5"></textarea>
+                    </div>
+                    <button class="btn btn-primary" type="submit">İlanı Oluştur</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

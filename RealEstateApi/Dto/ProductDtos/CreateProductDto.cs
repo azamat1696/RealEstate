@@ -1,4 +1,4 @@
-namespace RealEstateUI.Dto.ProductDtos;
+namespace RealEstateApi.Dto.ProductDtos;
 
 public class CreateProductDto
 {
@@ -16,5 +16,4 @@ public class CreateProductDto
     public DateTime AdvertisementDate { get; set; }
     public bool ProductStatus { get; set; }
     public int EmployeeId { get; set; }
-
 }

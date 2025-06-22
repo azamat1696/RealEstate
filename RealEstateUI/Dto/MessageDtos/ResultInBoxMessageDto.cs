@@ -1,4 +1,4 @@
-namespace RealEstateApi.Dto.MessageDtos;
+namespace RealEstateUI.Dto.MessageDtos;
 
 public class ResultInBoxMessageDto
 {

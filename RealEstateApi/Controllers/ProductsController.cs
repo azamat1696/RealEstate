@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using RealEstateApi.Dto.ProductDtos;
 using RealEstateApi.Repositories.ProductRepository;
 
 namespace RealEstateApi.Controllers;
@@ -46,5 +47,25 @@ public class ProductsController : Controller
     {
         var products = await _productRepository.GetProductAdvertsListByEmployeeIdAsync(employeeId);
         return Ok(products);
+    }
+    [HttpGet("ProductAdvertsActiveListByEmployee/{employeeId}")]
+    public async Task<IActionResult> GetProductAdvertsActiveListByEmployeeId(int employeeId)
+    {
+        var products = await _productRepository.GetProductAdvertsActiveListByEmployeeIdAsync(employeeId);
+        return Ok(products);
+    }
+    [HttpGet("ProductAdvertsPassiveListByEmployee/{employeeId}")]
+    public async Task<IActionResult> GetProductAdvertsPassiveListByEmployeeId(int employeeId)
+    {
+        var products = await _productRepository.GetProductAdvertsPassiveListByEmployeeIdAsync(employeeId);
+        return Ok(products);
+    }
+
+    [HttpPost("CreateProduct")]
+    public async Task<IActionResult> CreateProduct(CreateProductDto createProductDto)
+    {
+
+        await _productRepository.CreateProductAsync(createProductDto);
+        return Ok("Ürün Başarıyla Eklendi");
     }
 }

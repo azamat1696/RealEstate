@@ -71,4 +71,52 @@ public class ProductRepository : IProductRepository
             return values.ToList();
         }
     }
+    public async Task<List<ResultProductAdvertListWithCategoryByEmployeeDto>> GetProductAdvertsActiveListByEmployeeIdAsync(int employeeId)
+    {
+        string query = "SELECT *,CategoryName FROM products p LEFT JOIN categories c ON p.ProductCategory = c.CategoryId WHERE p.EmployeeId = @employeeId AND p.ProductStatus = 1";
+        var parameters = new DynamicParameters();
+        parameters.Add("employeeId", employeeId);
+        using (var connection = _context.CreateConnection())
+        {
+            var values = await connection.QueryAsync<ResultProductAdvertListWithCategoryByEmployeeDto>(query, parameters);
+            return values.ToList();
+        }
+    }
+    public async Task<List<ResultProductAdvertListWithCategoryByEmployeeDto>> GetProductAdvertsPassiveListByEmployeeIdAsync(int employeeId)
+    {
+        string query = "SELECT *,CategoryName FROM products p LEFT JOIN categories c ON p.ProductCategory = c.CategoryId WHERE p.EmployeeId = @employeeId AND p.ProductStatus = 0";
+        var parameters = new DynamicParameters();
+        parameters.Add("employeeId", employeeId);
+        using (var connection = _context.CreateConnection())
+        {
+            var values = await connection.QueryAsync<ResultProductAdvertListWithCategoryByEmployeeDto>(query, parameters);
+            return values.ToList();
+        }
+    }
+
+    public async Task CreateProductAsync(CreateProductDto createProductDto)
+    {
+        string query = "INSERT INTO products (Title, Price,CoverImage,City,District,Address,Description,Type,ProductCategory,EmployeeId,DealOfTheDay,AdvertisementDate,ProductStatus) " +
+                                     "VALUES (@Title, @Price, @CoverImage, @City, @District, @Address, @Description, @Type, @ProductCategory, @EmployeeId, @DealOfTheDay, @AdvertisementDate, @ProductStatus)";
+        var parameters = new DynamicParameters();
+        parameters.Add("@Title", createProductDto.Title);
+        parameters.Add("@Price", createProductDto.Price);
+        parameters.Add("@CoverImage", createProductDto.CoverImage);
+        parameters.Add("@City", createProductDto.City);
+        parameters.Add("@District", createProductDto.District);
+        parameters.Add("@Address", createProductDto.Address);
+        parameters.Add("@Description", createProductDto.Description);
+        parameters.Add("@Type", createProductDto.Type);
+        parameters.Add("@ProductCategory", createProductDto.ProductCategory);
+        parameters.Add("@EmployeeId", createProductDto.EmployeeId);
+        parameters.Add("@DealOfTheDay", createProductDto.DealOfTheDay);
+        parameters.Add("@AdvertisementDate", createProductDto.AdvertisementDate);
+        // Ensure the ProductStatus is set to true (1) by default
+        createProductDto.ProductStatus = true; // Assuming you want to set it to active by default
+        parameters.Add("@ProductStatus", createProductDto.ProductStatus ? 1 : 0);
+        using (var connection = _context.CreateConnection())
+        {
+            await connection.ExecuteAsync(query, parameters); 
+        }
+    }
 }
