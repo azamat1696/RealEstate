@@ -68,4 +68,11 @@ public class ProductsController : Controller
         await _productRepository.CreateProductAsync(createProductDto);
         return Ok("Ürün Başarıyla Eklendi");
     }
+    [HttpGet("GetProductById")]
+    public async Task<IActionResult> GetProductById(int id)
+    {
+        var product = await _productRepository.GetProductById(id);
+        return Ok(product);
+    }
+
 }

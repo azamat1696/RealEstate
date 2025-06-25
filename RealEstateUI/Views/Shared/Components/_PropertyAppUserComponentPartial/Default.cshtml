@@ -1,0 +1,18 @@
+@model GetAppUserByProductIdDto
+
+<div class="sidebar-widget popular-posts">
+    <div class="sidebar-title">
+        <h4>Emlakçı İletişim Bilgileri</h4>
+    </div>
+
+    <article class="post">
+        <figure class="post-thumb"><img src="@Model.image_url" class="radius-image" style="height: 100px" alt="">
+        </figure>
+        <div class="text mb-0"><a href="#blog-single">@Model.name
+            </a>
+            <div class="post-info">@Model.phone</div>
+            <div class="post-info">@Model.email</div>
+        </div>
+    </article>
+    <button type="submit" class="btn btn-primary btn-style w-100">Detaylı İletişim Bilgileri</button>
+</div>

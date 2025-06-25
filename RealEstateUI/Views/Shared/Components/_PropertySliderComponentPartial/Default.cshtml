@@ -1,0 +1,13 @@
+@model List<PropertyImageDto>
+<div class="single-post-image mb-5">
+    <div class="owl-blog owl-carousel owl-theme">
+        @foreach (var image in Model)
+        {
+            <div class="item">
+                <div class="card">
+                    <img src="@image.ImageUrl" class="img-fluid radius-image" style="height: 500px" alt="image">
+                </div>
+            </div>
+        }
+    </div>
+</div>

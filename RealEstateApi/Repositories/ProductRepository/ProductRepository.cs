@@ -30,7 +30,7 @@ public class ProductRepository : IProductRepository
             return values.ToList();
         }
     }
-    public async void ProductDealOfTheDayStatusChangeToActive(int id)
+    public async Task ProductDealOfTheDayStatusChangeToActive(int id)
     {
         string query = "UPDATE products SET DealOfTheDay = 1 WHERE ProductId = @id";
         var parameters = new DynamicParameters();
@@ -40,7 +40,7 @@ public class ProductRepository : IProductRepository
            await connection.ExecuteAsync(query, parameters);
         }
     }
-    public async void ProductDealOfTheDayStatusChangeToPassive(int id)
+    public async Task ProductDealOfTheDayStatusChangeToPassive(int id)
     {
         string query = "UPDATE products SET DealOfTheDay = 0 WHERE ProductId = @id";
         var parameters = new DynamicParameters();
@@ -117,6 +117,29 @@ public class ProductRepository : IProductRepository
         using (var connection = _context.CreateConnection())
         {
             await connection.ExecuteAsync(query, parameters); 
+        }
+    }
+
+    public async Task<GetProductByIdDto> GetProductById(int id)
+    {
+        string query = "SELECT *,CategoryName FROM products p LEFT JOIN categories c ON p.ProductCategory = c.CategoryId WHERE p.ProductId = @id";
+        var parameters = new DynamicParameters();
+        parameters.Add("id", id);
+        using (var connection = _context.CreateConnection())
+        {
+            var values = await connection.QueryAsync<GetProductByIdDto>(query, parameters);
+            return values.FirstOrDefault();
+        }
+    }
+    public async Task<GetProductDetailsByIdDto> GetProductDetailsById(int id)
+    {
+        string query = "SELECT * FROM product_details WHERE ProductId = @id";
+        var parameters = new DynamicParameters();
+        parameters.Add("id", id);
+        using (var connection = _context.CreateConnection())
+        {
+            var values = await connection.QueryAsync<GetProductDetailsByIdDto>(query, parameters);
+            return values.FirstOrDefault();
         }
     }
 }
