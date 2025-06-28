@@ -74,5 +74,15 @@ public class ProductsController : Controller
         var product = await _productRepository.GetProductById(id);
         return Ok(product);
     }
+    [HttpGet("GetProductListBySearchAsync")]
+    public async Task<IActionResult> GetProductListBySearchAsync(
+        string searchText,
+        int categoryId,
+        string cityName
+        )
+    {
+        var products = await _productRepository.GetProductListBySearchAsync(searchText, categoryId, cityName);
+        return Ok(products);
+    }
 
 }

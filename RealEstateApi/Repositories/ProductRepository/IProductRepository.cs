@@ -18,6 +18,8 @@ public interface IProductRepository
     Task<GetProductByIdDto> GetProductById(int id);
     Task<GetProductDetailsByIdDto> GetProductDetailsById(int id);
     
+    Task <List<ResultProductWithSearchListDto>> GetProductListBySearchAsync(string searchText,int categoryId,string cityName);
+    
     
     
 }

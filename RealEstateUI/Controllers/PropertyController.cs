@@ -80,4 +80,21 @@ public class PropertyController : Controller
         return View();
          
     } 
+    
+    public async Task<IActionResult> PropertyListWithSearch(
+        string searchText,
+        int categoryId,
+        string cityName
+        )
+    {
+        var client = _httpClientFactory.CreateClient();
+        var response = await client.GetAsync($"http://localhost:5059/api/Products/GetProductListBySearchAsync?searchText={searchText}&categoryId={categoryId}&cityName={cityName}");
+        if (response.IsSuccessStatusCode)
+        {
+            var jsonData = await response.Content.ReadAsStringAsync();
+            var products = JsonConvert.DeserializeObject<List<ResultProductWithSearchListDto>>(jsonData);
+            return View(products);
+        }
+        return View();
+    }
 }
