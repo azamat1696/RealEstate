@@ -12,6 +12,7 @@ using RealEstateApi.Repositories.MessageRepositories;
 using RealEstateApi.Repositories.PopularLocationRepository;
 using RealEstateApi.Repositories.ProductImageRepositories;
 using RealEstateApi.Repositories.ProductRepository;
+using RealEstateApi.Repositories.PropertyAmenityRepositories;
 using RealEstateApi.Repositories.ServiceRepository;
 using RealEstateApi.Repositories.StatisticsRepositories;
 using RealEstateApi.Repositories.TestimonialRepository;
@@ -39,6 +40,7 @@ builder.Services.AddTransient<ILastFiveProducts, LastFiveProducts>();
 builder.Services.AddTransient<IMessageRepository, MessageRepository>();
 builder.Services.AddTransient<IProductImageRepository, ProductImageRepository>();
 builder.Services.AddTransient<IAppUserRepository, AppUserRepository>();
+builder.Services.AddTransient<IPropertyAmenityRepository, PropertyAmenityRepository>();
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("CorsPolicy", builders =>

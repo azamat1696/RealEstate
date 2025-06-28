@@ -42,8 +42,9 @@ public class PropertyController : Controller
             ViewBag.City = product.city;
             ViewBag.District = product.district;
             ViewBag.Address = product.address;
-            ViewBag.Description = product.description;
+            ViewBag.Product_Description = product.description;
             ViewBag.Type = product.type;
+            ViewBag.Date = product.AdvertisementDate.ToString("dd-MM-yyyy");
             DateTime date1 = DateTime.Now;
             DateTime date2 = product.AdvertisementDate;
             if (date1 < date2)
@@ -65,6 +66,7 @@ public class PropertyController : Controller
         if (detailResponse.IsSuccessStatusCode) {
                 var detailJsonData = await detailResponse.Content.ReadAsStringAsync();
                 var productDetail = JsonConvert.DeserializeObject<ProductDetailDto>(detailJsonData);
+                ViewBag.ProductDetailId = productDetail?.ProductDetailId;
                 ViewBag.ProductSize = productDetail?.ProductSize;
                 ViewBag.BedroomCount = productDetail?.BedroomCount;
                 ViewBag.BathCount = productDetail?.BathCount;
@@ -72,13 +74,8 @@ public class PropertyController : Controller
                 ViewBag.GarageSize = productDetail?.GarageSize;
                 ViewBag.BuildYear = productDetail?.BuildYear;
                 ViewBag.VideoUrl = productDetail?.VideoUrl;
-        }
-        var imagesResponse = await client.GetAsync($"http://localhost:5059/api/ProductImages?productId={id}");
-        if (imagesResponse.IsSuccessStatusCode)
-        {
-            var imagesJsonData = await imagesResponse.Content.ReadAsStringAsync();
-            var productImages = JsonConvert.DeserializeObject<List<PropertyImageDto>>(imagesJsonData);
-            ViewBag.ProductImages = productImages;
+                ViewBag.Location = productDetail?.Location;
+                
         }
         return View();
          
